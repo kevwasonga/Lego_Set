@@ -13,12 +13,12 @@ pub struct Mob {
 // 👉 “The struct defines the mob’s shape. The `new` method is a convenience constructor that helps us build mobs with sensible defaults.”
 
 impl Mob {
-    pub fn new(name: &str, boss: Boss, wealth: u32, city: &str) -> Self {
+    pub fn new(name: &str, boss: Boss, wealth: u32, cities: Vec<(String, u8)>) -> Self {
         Self {
             name: name.to_string(),
             boss,
             members: vec![],
-            cities: vec![],
+            cities,
             wealth,
             allies: vec![],
             enemies: vec![],
@@ -27,6 +27,6 @@ impl Mob {
 }
 
  //CITIES CREATION
-cities: vec![(city.to_string(), 5)],
-* Initialize with `vec![]` (no cities).
-* Provide a method like `add_city(name: &str, influence: u8)`.
+// cities: vec![(city.to_string(), 5)],
+// * Initialize with `vec![]` (no cities).
+// * Provide a method like `add_city(name: &str, influence: u8)`.
