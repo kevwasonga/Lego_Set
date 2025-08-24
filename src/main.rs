@@ -6,9 +6,20 @@ use world::World;
 
 fn main() {
     let mut world = World::new(vec![
-        Mob::new("Rusty Blades", Boss { name: "Don Rustoni".into(), power: 95 }, 500, "Rustville"),
-        Mob::new("Bug Lords", Boss { name: "Carmen Codez".into(), power: 90 }, 300, "Bugtown"),
-        Mob::new("Null Pointers", Boss { name: "Segfault Sam".into(), power: 85 }, 700, "Pointer City"),
+        Mob::new("Rusty Blades",
+         Boss { name: "Don Rustoni".into(), power: 95 }, 
+         500,
+          vec![("Rustville".to_string(),8)]),
+         Mob::new("Bug Lords",
+          Boss { name: "Carmen Codez".into(), power: 90 }, 
+          300, 
+          vec![("Bugtown".to_string(),9)]),
+
+         Mob::new("Null Pointers",
+          Boss { name: "Segfault Sam".into(),
+           power: 85 }, 
+          700,
+            vec![("Pointer City".to_string(),10)]),
     ]);
 
     // Example: recruiting before game loop
