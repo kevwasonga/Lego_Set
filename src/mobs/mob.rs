@@ -1,13 +1,17 @@
+use serde::{Serialize, Deserialize};
+
 use super::{Boss, Member};
 
-#[derive(Debug, Clone)]
+#[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct Mob {
     pub name: String,
     pub boss: Boss,// only one boss, so no need for name.
     pub members: Vec<Member>,
     pub cities: Vec<(String, u8)>,
     pub wealth: u32,
+    #[serde(default)]  // Will use Vec::default() (empty vec) if missing
     pub allies: Vec<String>,
+    #[serde(default)]  // Will use Vec::default() (empty vec) if missing
     pub enemies: Vec<String>,
 }
 // 👉 “The struct defines the mob’s shape. The `new` method is a convenience constructor that helps us build mobs with sensible defaults.”
