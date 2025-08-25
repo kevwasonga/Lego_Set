@@ -11,7 +11,7 @@ fn main() {
     // use std::fs;
 
     // fn main() {
-        let data = fs::read_to_string("resources/mobs.json")
+        let data = fs::read_to_string("data/mobs.json")
             .expect("Could not load mobs.json — maybe it's missing?");
             //match or if let:
     
@@ -35,6 +35,6 @@ fn main() {
     println!("\nFinal Standings:");
     for mob in game_world.mobs {
         
-        println!("{:?}", mob);
+        println!("{:#?}", mob);
     }
 }
