@@ -1,5 +1,6 @@
+use serde::{Serialize, Deserialize};
 
-#[derive(Debug, Clone)]
+#[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct Member {
     pub name: String,
     pub skill: String,
