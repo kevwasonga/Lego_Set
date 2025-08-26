@@ -1,0 +1,89 @@
+[
+    {
+      "name": "Rusty Blades",
+      "boss": { "name": "Don Rustoni", "power": 95 },
+      "wealth": 500,
+      "cities": [["Rustville", 8]],
+      "members": [
+        { "name": "Brick Brenda", "skill": "Negotiation" }
+      ]
+    },
+    {
+      "name": "Bug Lords",
+      "boss": { "name": "Carmen Codez", "power": 90 },
+      "wealth": 300,
+      "cities": [["Bugtown", 9]],
+      "members": []
+    },
+    {
+      "name": "Iron Fangs",
+      "boss": { "name": "Viktor Steel", "power": 88 },
+      "wealth": 480,
+      "cities": [["Ironforge", 7]],
+      "members": [
+        { "name": "Sally Sharp", "skill": "Espionage" },
+        { "name": "Mick Flash", "skill": "Stealth" }
+      ]
+    },
+    {
+      "name": "Venom Vultures",
+      "boss": { "name": "Lara Venom", "power": 92 },
+      "wealth": 350,
+      "cities": [["Vulture's Peak", 6]],
+      "members": [
+        { "name": "Dan Sting", "skill": "Trapmaking" }
+      ]
+    },
+    {
+      "name": "Crimson Claws",
+      "boss": { "name": "Zara Redfang", "power": 93 },
+      "wealth": 510,
+      "cities": [["Crimson City", 8]],
+      "members": [
+        { "name": "Red Rick", "skill": "Brawling" },
+        { "name": "Fiona Flame", "skill": "Pyrotechnics" }
+      ]
+    },
+    {
+      "name": "Shadow Serpents",
+      "boss": { "name": "Silas Shade", "power": 89 },
+      "wealth": 320,
+      "cities": [["Shadowmoor", 9]],
+      "members": []
+    },
+    {
+      "name": "Golden Hawks",
+      "boss": { "name": "Helena Hawk", "power": 86 },
+      "wealth": 470,
+      "cities": [["Goldcrest", 7]],
+      "members": [
+        { "name": "Tom Talon", "skill": "Archery" }
+      ]
+    },
+    {
+      "name": "Steel Vipers",
+      "boss": { "name": "Vince Viper", "power": 91 },
+      "wealth": 400,
+      "cities": [["Viper's Den", 8]],
+      "members": []
+    },
+    {
+      "name": "Black Scorpions",
+      "boss": { "name": "Nina Scorpion", "power": 87 },
+      "wealth": 330,
+      "cities": [["Scorpion Sands", 7]],
+      "members": [
+        { "name": "Jake Poison", "skill": "Alchemy" }
+      ]
+    },
+    {
+      "name": "Night Wolves",
+      "boss": { "name": "Wes Wolf", "power": 90 },
+      "wealth": 450,
+      "cities": [["Lunar Hollow", 8]],
+      "members": [
+        { "name": "Lina Howl", "skill": "Tracking" }
+      ]
+    }
+  ]
+  
