@@ -28,6 +28,7 @@ fn main() {
     for turn in 1..=5 {
         println!("--- Turn {} ---", turn);
         game_world.run_turn();
+        game_world.sort_mobs_by_wealth(); //
         
         let json_output = serde_json::to_string_pretty(&game_world)
             .expect("Failed to serialize game state");

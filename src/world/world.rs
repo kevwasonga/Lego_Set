@@ -1,6 +1,8 @@
+use serde::{Serialize, Deserialize};
 use crate::mobs::Mob;
 use rand::Rng;
 
+#[derive(Debug, Serialize, Deserialize)]
 pub struct World {
     pub mobs: Vec<Mob>,
 }
@@ -9,7 +11,10 @@ impl World {
     pub fn new(mobs: Vec<Mob>) -> Self {
         Self { mobs }
     }
-
+    pub fn sort_mobs_by_wealth(&mut self){
+        self.mobs.sort_by(|a,b|a.wealth.cmp(&b.wealth));
+    }
+//consider sorting by other methods e.g by respect..
     
     pub fn run_turn(&mut self) {
         for i in 0..self.mobs.len() {
@@ -35,10 +40,12 @@ impl World {
     
     fn choose_target(&self, idx: usize) -> Option<usize> {
         let me = &self.mobs[idx];
+        //idx tells us which mob (gang) is currently taking action.
         let candidates: Vec<(usize, &Mob)> = self.mobs.iter()
             .enumerate()
             .filter(|(i, m)| *i != idx && m.wealth > 50 && !me.allies.contains(&m.name))
             .collect();
+            //print candidates eligible for attack..
 
         if candidates.is_empty() { None }
         else {
@@ -48,28 +55,3 @@ impl World {
     }
 }
 
-
-
-
-
-// pub fn run_turn(&mut self) {
-//     for i in 0..self.mobs.len() {
-//         let action = rand::thread_rng().gen_range(0..2);
-
-//         if let Some(target_index) = self.choose_target(i) {
-//             if action == 0 {
-//                 self.mobs[i].steal(&mut self.mobs[target_index], 50);
-
-
-// //                     //self.mobs[i].steal(&mut self.mobs[target_index], 50);
-// //    |                     ---------    -----      ^^^^^^^^^ second mutable borrow occurs here
-// //    |                     |            |
-// //    |                     |            first borrow later used by call
-// //    |                     first mutable borrow occurs here
-// //   = help: use `.split_at_mut(position)` to obtain two mutable non-overlapping sub-slices
-//             } else {
-//                 self.mobs[i].attack(&mut self.mobs[target_index]);
-//             }
-//         }
-//     }
-// }
