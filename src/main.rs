@@ -1,45 +1,48 @@
+use axum::{
+    routing::{get, post},
+    Router, Json, extract::State,
+};
 use serde::{Serialize, Deserialize};
-use std::fs;
-use std::fs::File;
-use std::io::Write;
-use mobs::{Mob, Boss, Member};
+use std::{sync::{Arc, Mutex}, fs};
+use mobs::Mob;
 use world::World;
 
 mod mobs;
 mod world;
 
-
-
-fn main() {
-    // Load initial data from mobs.json
+#[tokio::main]
+async fn main() {
+    // Load initial mobs.json
     let data = fs::read_to_string("../data/mobs.json")
-        .expect("Could not load mobs.json — maybe it's missing?");
+        .expect("Could not load mobs.json");
+    let mobs: Vec<Mob> = serde_json::from_str(&data).expect("Failed to parse mobs.json");
     
-    let mobs: Vec<Mob> = serde_json::from_str(&data)
-        .expect("Failed to parse mobs.json");
-    
-    let mut game_world = World::new(mobs);
-    
-    // Create the output directory if it doesn't exist
-    fs::create_dir_all("../output")
-        .expect("Could not create output directory");
-    
-    // Run 5 turns of the simulation
-    for turn in 1..=5 {
-        println!("--- Turn {} ---", turn);
-        game_world.run_turn();
-        game_world.sort_mobs_by_wealth(); //
-        
-        let json_output = serde_json::to_string_pretty(&game_world)
-            .expect("Failed to serialize game state");
-        
-        let filename = format!("../output/turn_{}.json", turn);
-        let mut file = File::create(&filename).expect("Could not create file");
-        file.write_all(json_output.as_bytes()).expect("Could not write file");
-        
-        println!("Saved game state to {}", filename);
-    }
+    // Shared state across requests
+    let game_world = Arc::new(Mutex::new(World::new(mobs)));
+
+    // Build router
+    let app = Router::new()
+        .route("/world/turn", post(run_turn))
+        .route("/world/state", get(get_state))
+        .with_state(game_world);
+
+    println!("Server running at http://127.0.0.1:3000");
+    axum::Server::bind(&"127.0.0.1:3000".parse().unwrap())
+        .serve(app.into_make_service())
+        .await
+        .unwrap();
 }
 
+// POST /world/turn → advance 1 turn
+async fn run_turn(State(state): State<Arc<Mutex<World>>>) -> Json<World> {
+    let mut world = state.lock().unwrap();
+    world.run_turn();
+    world.sort_mobs_by_wealth();
+    Json(world.clone())
+}
 
-//IDEA DOCS   https://docs.google.com/document/d/1L8VlcYtv-ybpx6lg8vtiyucx4cZLTyjHp0TJllYEWfU/edit?tab=t.0
+// GET /world/state → return current state
+async fn get_state(State(state): State<Arc<Mutex<World>>>) -> Json<World> {
+    let world = state.lock().unwrap();
+    Json(world.clone())
+}
