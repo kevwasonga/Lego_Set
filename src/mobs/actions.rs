@@ -1,8 +1,12 @@
 use super::Mob;
+use serde::{Serialize, Deserialize};
+
+
 
 impl Mob {
     pub fn recruit(&mut self, member: super::Member) {
         self.members.push(member);
+        //variants of a struct are readily available to methods implementing it.. with/without pub keyword...
     }
 
     pub fn mark_enemy(&mut self, enemy_name: String) {

@@ -1,0 +1,249 @@
+{
+  "mobs": [
+    {
+      "name": "Shadow Serpents",
+      "boss": {
+        "name": "Silas Shade",
+        "power": 89
+      },
+      "members": [],
+      "cities": [
+        [
+          "Shadowmoor",
+          9
+        ]
+      ],
+      "wealth": 320,
+      "allies": [],
+      "enemies": []
+    },
+    {
+      "name": "Bug Lords",
+      "boss": {
+        "name": "Carmen Codez",
+        "power": 90
+      },
+      "members": [],
+      "cities": [
+        [
+          "Bugtown",
+          9
+        ]
+      ],
+      "wealth": 400,
+      "allies": [],
+      "enemies": []
+    },
+    {
+      "name": "Steel Vipers",
+      "boss": {
+        "name": "Vince Viper",
+        "power": 91
+      },
+      "members": [],
+      "cities": [
+        [
+          "Viper's Den",
+          8
+        ]
+      ],
+      "wealth": 400,
+      "allies": [],
+      "enemies": [
+        "Crimson Claws"
+      ]
+    },
+    {
+      "name": "Rusty Blades",
+      "boss": {
+        "name": "Don Rustoni",
+        "power": 95
+      },
+      "members": [
+        {
+          "name": "Brick Brenda",
+          "skill": "Negotiation"
+        }
+      ],
+      "cities": [
+        [
+          "Rustville",
+          8
+        ]
+      ],
+      "wealth": 400,
+      "allies": [],
+      "enemies": [
+        "Bug Lords",
+        "Iron Fangs",
+        "Venom Vultures",
+        "Steel Vipers",
+        "Night Wolves"
+      ]
+    },
+    {
+      "name": "Crimson Claws",
+      "boss": {
+        "name": "Zara Redfang",
+        "power": 93
+      },
+      "members": [
+        {
+          "name": "Red Rick",
+          "skill": "Brawling"
+        },
+        {
+          "name": "Fiona Flame",
+          "skill": "Pyrotechnics"
+        }
+      ],
+      "cities": [
+        [
+          "Crimson City",
+          8
+        ]
+      ],
+      "wealth": 410,
+      "allies": [],
+      "enemies": [
+        "Rusty Blades",
+        "Shadow Serpents",
+        "Golden Hawks",
+        "Venom Vultures",
+        "Steel Vipers",
+        "Iron Fangs",
+        "Black Scorpions"
+      ]
+    },
+    {
+      "name": "Golden Hawks",
+      "boss": {
+        "name": "Helena Hawk",
+        "power": 86
+      },
+      "members": [
+        {
+          "name": "Tom Talon",
+          "skill": "Archery"
+        }
+      ],
+      "cities": [
+        [
+          "Goldcrest",
+          7
+        ]
+      ],
+      "wealth": 420,
+      "allies": [],
+      "enemies": [
+        "Steel Vipers",
+        "Black Scorpions",
+        "Night Wolves",
+        "Shadow Serpents",
+        "Bug Lords"
+      ]
+    },
+    {
+      "name": "Black Scorpions",
+      "boss": {
+        "name": "Nina Scorpion",
+        "power": 87
+      },
+      "members": [
+        {
+          "name": "Jake Poison",
+          "skill": "Alchemy"
+        }
+      ],
+      "cities": [
+        [
+          "Scorpion Sands",
+          7
+        ]
+      ],
+      "wealth": 430,
+      "allies": [],
+      "enemies": [
+        "Iron Fangs"
+      ]
+    },
+    {
+      "name": "Iron Fangs",
+      "boss": {
+        "name": "Viktor Steel",
+        "power": 88
+      },
+      "members": [
+        {
+          "name": "Sally Sharp",
+          "skill": "Espionage"
+        },
+        {
+          "name": "Mick Flash",
+          "skill": "Stealth"
+        }
+      ],
+      "cities": [
+        [
+          "Ironforge",
+          7
+        ]
+      ],
+      "wealth": 430,
+      "allies": [],
+      "enemies": [
+        "Crimson Claws",
+        "Rusty Blades",
+        "Night Wolves"
+      ]
+    },
+    {
+      "name": "Venom Vultures",
+      "boss": {
+        "name": "Lara Venom",
+        "power": 92
+      },
+      "members": [
+        {
+          "name": "Dan Sting",
+          "skill": "Trapmaking"
+        }
+      ],
+      "cities": [
+        [
+          "Vulture's Peak",
+          6
+        ]
+      ],
+      "wealth": 450,
+      "allies": [],
+      "enemies": []
+    },
+    {
+      "name": "Night Wolves",
+      "boss": {
+        "name": "Wes Wolf",
+        "power": 90
+      },
+      "members": [
+        {
+          "name": "Lina Howl",
+          "skill": "Tracking"
+        }
+      ],
+      "cities": [
+        [
+          "Lunar Hollow",
+          8
+        ]
+      ],
+      "wealth": 450,
+      "allies": [],
+      "enemies": [
+        "Crimson Claws",
+        "Golden Hawks",
+        "Venom Vultures"
+      ]
+    }
+  ]
+}

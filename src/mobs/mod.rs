@@ -11,4 +11,5 @@ pub use member::Member;
 // The pub keyword makes the module public, which means this module and its public contents can be accessed from outside the current module or crate (depending on the crate hierarchy).
 
 
-//What are these crates then?
+//What are these crates then?...
+//A crate is the smallest unit of code compilation in Rust.
