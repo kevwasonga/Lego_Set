@@ -26,11 +26,13 @@ async fn main() {
         .route("/world/state", get(get_state))
         .with_state(game_world);
 
-    println!("Server running at http://127.0.0.1:3000");
-    axum::Server::bind(&"127.0.0.1:3000".parse().unwrap())
-        .serve(app.into_make_service())
-        .await
-        .unwrap();
+    println!("Server running at http://127.0.0.1:3000");        
+let addr: std::net::SocketAddr = "127.0.0.1:3000".parse().unwrap();
+let listener = tokio::net::TcpListener::bind(addr).await.unwrap();
+    axum::serve(listener, app)
+    .await
+    .unwrap();
+
 }
 
 // POST /world/turn → advance 1 turn
@@ -38,11 +40,13 @@ async fn run_turn(State(state): State<Arc<Mutex<World>>>) -> Json<World> {
     let mut world = state.lock().unwrap();
     world.run_turn();
     world.sort_mobs_by_wealth();
-    Json(world.clone())
+    Json(world.to_owned())     //  if World: Clone
+
+    
 }
 
 // GET /world/state → return current state
 async fn get_state(State(state): State<Arc<Mutex<World>>>) -> Json<World> {
     let world = state.lock().unwrap();
-    Json(world.clone())
+    Json(world.to_owned())     //  if World: Clone
 }

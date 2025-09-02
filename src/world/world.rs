@@ -2,7 +2,7 @@ use serde::{Serialize, Deserialize};
 use crate::mobs::Mob;
 use rand::Rng;
 
-#[derive(Debug, Serialize, Deserialize)]
+#[derive(Clone,Debug, Serialize, Deserialize)] 
 pub struct World {
     pub mobs: Vec<Mob>,
 }
